@@ -1,0 +1,13 @@
+package com.blockchainhub;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class TbhBackendApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(TbhBackendApplication.class, args);
+	}
+
+}

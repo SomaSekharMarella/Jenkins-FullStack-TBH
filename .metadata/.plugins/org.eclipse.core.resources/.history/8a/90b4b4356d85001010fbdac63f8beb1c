@@ -1,0 +1,5 @@
+package com.blockchainhub.model;
+
+public class Team {
+
+}
