@@ -1848,3 +1848,6 @@ import org.springframework.|boot.autoconfigure.SpringBootApplication;
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2025-09-05 15:28:48.933
 !MESSAGE Classpath changed for project: TBHBackend
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-09-05 15:50:50.469
+!MESSAGE Classpath changed for project: TBHBackend
