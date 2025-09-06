@@ -10,11 +10,13 @@ function Team() {
     phoneNumber: "",
     telegramId: ""
   });
-  const [editingId, setEditingId] = useState(null); // track which member is being edited
+  const [editingId, setEditingId] = useState(null);
+
+  const BASE_URL = "http://localhost:8080/tbh-backend/api/teams";
 
   // Fetch all team members
   useEffect(() => {
-    fetch("http://localhost:8080/api/teams")
+    fetch(BASE_URL)
       .then(res => res.json())
       .then(data => setTeams(data))
       .catch(err => console.error(err));
@@ -31,7 +33,7 @@ function Team() {
 
     if (editingId) {
       // UPDATE existing member
-      fetch(`http://localhost:8080/api/teams/${editingId}`, {
+      fetch(`${BASE_URL}/${editingId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form)
@@ -45,7 +47,7 @@ function Team() {
         .catch(err => console.error(err));
     } else {
       // ADD new member
-      fetch("http://localhost:8080/api/teams", {
+      fetch(BASE_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form)
@@ -61,13 +63,13 @@ function Team() {
 
   // Edit team member
   const handleEdit = (member) => {
-    setForm(member); // fill form with existing values
+    setForm(member);
     setEditingId(member.id);
   };
 
   // Delete team member
   const handleDelete = (id) => {
-    fetch(`http://localhost:8080/api/teams/${id}`, { method: "DELETE" })
+    fetch(`${BASE_URL}/${id}`, { method: "DELETE" })
       .then(() => setTeams(teams.filter(t => t.id !== id)))
       .catch(err => console.error(err));
   };
