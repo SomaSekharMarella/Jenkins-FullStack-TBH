@@ -30,7 +30,7 @@ pipeline {
         stage('Build Backend') {
             steps {
                 dir('TBHBackend') {
-                    bat 'mvn clean package -DskipTests'
+                    bat 'mvn clean package'
                 }
             }
         }
@@ -45,7 +45,7 @@ pipeline {
                 if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\tbh-backend" (
                     rmdir /S /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\tbh-backend"
                 )
-                copy "TBHBackend\\target\\*.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\tbh-backend.war"
+                copy "TBHBackend\\target\\*.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\"
                 '''
             }
         }
