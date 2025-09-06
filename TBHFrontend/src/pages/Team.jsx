@@ -12,7 +12,7 @@ function Team() {
   });
   const [editingId, setEditingId] = useState(null);
 
-  const BASE_URL = "http://localhost:8080/tbh-backend/api/teams";
+  const BASE_URL = "http://localhost:2030/tbh-backend/api/teams";
 
   // Fetch all team members
   useEffect(() => {
